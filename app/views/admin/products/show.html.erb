@@ -1,0 +1,23 @@
+<h1>Products</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Image URL</th>
+    <th>Created At</th>
+  </tr>
+  <tr>
+    <td><%= @product.id %> </td>
+    <td><%= @product.name %> </td>
+    <td><%= number_to_currency @product.price %> </td>
+    <td><%= image_tag @product.image_url, alt: @product.image_url %> </td>
+    <td><%= time_ago_in_words @product.created_at %> ago </td>
+    <td><%= link_to "edit", edit_admin_product_path(@product) %></td>
+    <td><%= link_to "delete", admin_product_path(@product), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </tr>
+</table>
+
+<%= link_to "Back to products", admin_products_path %>
+

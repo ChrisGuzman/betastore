@@ -1,0 +1,28 @@
+<h1>Products</h1>
+
+<% if flash[:notice].present? %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<p><%= link_to "New Product", new_admin_product_path %></p>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Created At</th>
+  </tr>
+  <% for product in @products %>
+  <tr>
+    <td><%= link_to product.id, admin_product_path(product) %></td>
+    <td><%= link_to product.name, admin_product_path(product) %></td>
+    <td><%= product.name %></td>
+    <td><%= number_to_currency product.price %></td>
+    <td><%= product.created_at.strftime('%A %m/%d/%Y %l:%M %p %Z') %></td>
+    <td><%= link_to "edit", edit_admin_product_path(product) %></td>
+    <td><%= link_to "delete", admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
+  </tr>
+  <% end %>
+</table>

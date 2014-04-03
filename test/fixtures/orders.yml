@@ -1,0 +1,6 @@
+cheap:
+  total_amount: 4
+economic:
+  total_amount: 4
+expensive:
+  total_amount: 42

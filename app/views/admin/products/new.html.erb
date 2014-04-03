@@ -1,0 +1,11 @@
+<h1>New Product</h1>
+
+<% if @product.errors.present? %>
+  <ul style='color: red'>
+    <% @product.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+  </ul>
+<% end %>
+
+<%= render 'form' %>
