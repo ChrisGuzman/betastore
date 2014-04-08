@@ -26,3 +26,4 @@ class ManageProductTest < ActionDispatch::IntegrationTest
    save_and_open_page
   end
 end
+
