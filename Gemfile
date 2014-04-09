@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby "2.1.1"
 
+gem "bugsnag"
+
 gem 'puma'
 
 gem 'faker'
