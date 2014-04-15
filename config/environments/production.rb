@@ -14,6 +14,21 @@ Betastore::Application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  # Make all links go to production site
+  config.action_mailer.default_url_options = {
+  host: "enigmatic-ocean-5866.herokuapp.com/"
+  }
+
+  config.action_mailer.smtp_settings = {
+  port:           ENV['MAILGUN_SMTP_PORT'],
+  address:        ENV['MAILGUN_SMTP_SERVER'],
+  user_name:      ENV['MAILGUN_SMTP_LOGIN'],
+  password:       ENV['MAILGUN_SMTP_PASSWORD'],
+  domain:         'enigmatic-ocean-5866.herokuapp.com/',
+  authentication: :plain,
+  }
+  config.action_mailer.delivery_method = :smtp
+
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.

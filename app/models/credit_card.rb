@@ -21,7 +21,7 @@ class CreditCard < ActiveRecord::Base
     length: { minimum: 15 },
     format: { with: /\A\d{15,}\z/}
   validates :expires_on, presence: true,
-                         format: { with: /\d{2}\/\d{4}/, allow_blank: true }
+                         format: { with: /\A\d{2}\/\d{4}\z/, allow_blank: true }
                          # if: :expires_in_future()
 
 

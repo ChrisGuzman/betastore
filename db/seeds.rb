@@ -19,6 +19,8 @@ shirt.categories << clothing
 journal.categories << office_supplies
 sticker.categories << office_supplies
 
+User.create!(email: 'chris@example.com', password: 'secret')
+
 # chris = Customer.create!(name:"Chris", email:"chris@example.com")
 # paul = Customer.create!(name: "Paul", email: "Paul@betamore.com")
 # paul.credit_cards.create(card_number:"4111111111111", expires_on:"2017-04-01")
