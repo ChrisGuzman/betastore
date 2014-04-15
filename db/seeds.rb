@@ -20,6 +20,7 @@ journal.categories << office_supplies
 sticker.categories << office_supplies
 
 User.create!(email: 'chris@example.com', password: 'secret')
+User.create!(email: 'guzmantchris@gmail.com', password: 'example')
 
 # chris = Customer.create!(name:"Chris", email:"chris@example.com")
 # paul = Customer.create!(name: "Paul", email: "Paul@betamore.com")

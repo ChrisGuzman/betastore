@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "http://enigmatic-ocean-5866.herokuapp.com/"
+  default from: "enigmatic-ocean-5866.herokuapp.com/"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
