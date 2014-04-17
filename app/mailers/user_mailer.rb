@@ -11,7 +11,7 @@ class UserMailer < ActionMailer::Base
     @name = @user.name
     @url = "http://localhost:3000/sign_up"
     mail(to: @user.email, subject: "Verfiy your account")
-    binding.pry
+    # binding.pry
   end
 
   # def welcome_email(user)
