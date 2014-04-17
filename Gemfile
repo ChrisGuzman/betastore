@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby "2.1.1"
 
+gem 'pry'
+
 gem 'brakeman', require: false
 
 gem "bugsnag"

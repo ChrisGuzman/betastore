@@ -6,9 +6,17 @@ class UserMailer < ActionMailer::Base
   #
   #   en.user_mailer.welcome.subject
   #
-def welcome(user)
-  @name = user.email.split('@').first
+  def welcome(user)
+    @user = Customer.last
+    @name = @user.name
+    @url = "http://localhost:3000/sign_up"
+    mail(to: @user.email, subject: "Verfiy your account")
+    binding.pry
+  end
 
-  mail to: user.email
-end
+  # def welcome_email(user)
+  #   @user = user
+  #   @url = "http://localhost:3000/sign_up"
+  #   mail(to: @user.email, subject: "Verfiy your account")
+  # end
 end
