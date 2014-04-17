@@ -12,6 +12,7 @@ Betastore::Application.routes.draw do
   end
 
   # resources :customers
+  get '/verify/:token' => 'customers#verify', as: 'verify_customer'
   resources :subscriptions
   root :to => 'subscriptions#new'
   get '/sign_up' => 'customers#new', as: 'new_customer'

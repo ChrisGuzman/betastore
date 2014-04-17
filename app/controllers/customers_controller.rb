@@ -6,8 +6,8 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
     if @customer.save
-      UserMailer.welcome(@user).deliver
-      redirect_to new_customer_path, notice: "User #{@customer.email} was created."
+      CustomerMailer.welcome(@customer).deliver
+      redirect_to new_customer_path, notice: "Customer #{@customer.email} was created."
     else
       render "new", notice: "There was an issue creating your account."
     end
@@ -15,6 +15,16 @@ class CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
+  end
+
+  def verify
+    customer = Customer.verify.(params[:token])
+
+    if customer
+      redirect_to root_path, notice: "Account is confirmed."
+    else
+      redirect_to root_path, alert: "Account is invalid. Verification link is invalid"
+    end
   end
 
   private

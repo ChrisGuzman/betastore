@@ -4,9 +4,13 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-  <h1> <%= @name %>, welcome to Betastore</h1>
+<%= binding.pry %>
+  <h1> <%= @customer.name %>, welcome to Betastore</h1>
   <p>You have succesfully created an account.</p>
   <p>Please click below to verify your account</p>
-  <a href="http://localhost:3000/customers/<%= @user.id %>">Verify your account</a>
+  <a href="http://localhost:3000/customers/<%= @customer.id %>">Verify your account</a>
+  <p>
+    Verify by <%= link_to "clicking here", verify_customer_url(@token) %>
+  </p>
 </body>
 </html>
