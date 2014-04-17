@@ -2,7 +2,6 @@
 <% if flash[:notice].present? %>
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>
-<%= binding.pry %>
 <%= form_for @customer, url: new_customer_path, html: {class: "form-inline", role:"form"} do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
