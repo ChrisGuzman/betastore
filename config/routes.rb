@@ -11,12 +11,12 @@ Betastore::Application.routes.draw do
 
   end
 
-  resources :customers
+  # resources :customers
   resources :subscriptions
   root :to => 'subscriptions#new'
-  get '/sign_up' => 'customers#new'
+  get '/sign_up' => 'customers#new', as: 'new_customer '
   post '/sign_up' => 'customers#create'
-  # get '/customers' => 'customers#show', as: 'customer'
+  get '/customers/:id(.:format)' => 'customers#show', as: 'customer'
 
   get '/products' => 'products#index', as: 'products'
 end
