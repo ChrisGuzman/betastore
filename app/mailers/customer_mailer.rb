@@ -4,7 +4,7 @@ class CustomerMailer < ActionMailer::Base
     def welcome(customer)
     @customer = customer
     @name = customer.name
-    @token = Rails.application.message_verifier('customer').generate('@customer.id')
+    @token = Rails.application.message_verifier('customer').generate(@customer.id)
     mail to: @customer.email
     # binding.pry
   end

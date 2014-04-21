@@ -19,10 +19,11 @@ class CustomersController < ApplicationController
 
   def verify
     customer = Customer.verify(params[:token])
+    binding.pry
     if customer
       redirect_to root_path, notice: "Account is confirmed."
     else
-      redirect_to root_path, alert: "Account is invalid. Verification link is invalid"
+      redirect_to root_path, notice: "Account is invalid. Verification link is invalid"
     end
   end
 

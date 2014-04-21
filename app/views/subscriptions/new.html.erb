@@ -1,1 +1,4 @@
+<% if flash[:notice].present? %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
 <%= render 'form' %>

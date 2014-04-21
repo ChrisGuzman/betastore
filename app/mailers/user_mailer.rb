@@ -9,7 +9,7 @@ class UserMailer < ActionMailer::Base
   def welcome(customer)
     @customer = customer
     # @url = "http://localhost:3000/sign_up"
-    @token = Rails.application.message_verifier('customer').generate('@customer.id')
+    @token = Rails.application.message_verifier('customer').generate(@customer.id)
     mail to: @customer.email
     # binding.pry
   end
