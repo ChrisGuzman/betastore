@@ -7,5 +7,6 @@
 
   <h1> <%= @name %>, welcome to Betastore</h1>
   <p>You have succesfully created an account.</p>
+  <p>Please <%= link_to "verify your account", verify_customer_url(@token)  %></p>
 </body>
 </html>

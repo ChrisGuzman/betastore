@@ -7,7 +7,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
     if @customer.save
       CustomerMailer.welcome(@customer).deliver
-      redirect_to new_customer_path, notice: "Customer #{@customer.email} was created."
+      redirect_to root_path, notice: "Customer #{@customer.email} was created."
     else
       render "new", notice: "There was an issue creating your account."
     end

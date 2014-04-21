@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140417224619) do
+ActiveRecord::Schema.define(version: 20140418003029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20140417224619) do
     t.string   "zip_code"
     t.string   "password"
     t.datetime "verfied_at"
+    t.string   "password_digest"
   end
 
   create_table "line_items", force: true do |t|
