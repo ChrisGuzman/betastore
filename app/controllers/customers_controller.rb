@@ -18,8 +18,7 @@ class CustomersController < ApplicationController
   end
 
   def verify
-    customer = Customer.verify.(params[:token])
-
+    customer = Customer.verify(params[:token])
     if customer
       redirect_to root_path, notice: "Account is confirmed."
     else
