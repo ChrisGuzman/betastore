@@ -1,0 +1,63 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to("Betastore", root_path, class:"navbar-brand") %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <p class="navbar-text">
+          <% if logged_in? %>
+            <%= link_to "Log out", logout_path, method: :delete %>
+          <% else %>
+            <%= link_to "Create an account", new_customer_path %> | <%= link_to "Log in", logins_path %>
+          <% end %>
+        </p>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<h1>Products</h1>
+
+<table class= "table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Image</th>
+    <th>Description</th>
+    <th>Buy?</th>
+  </tr>
+  <tr>
+    <td><%= @product.name %> </td>
+    <td><%= number_to_currency @product.price %> </td>
+    <td><%= image_tag(@product.image_url, class:"img-thumbnail img-responsive", width:"300px") %> </td>
+    <td>Created <%= time_ago_in_words @product.created_at %> ago </td>
+    <td>
+      <%= button_to add_product_to_cart_path(@product), class: 'btn btn-success' do %>
+      <span class="glyphicon glyphicon-shopping-cart"></span>
+      Add To Cart
+      <% end %>
+    </td>
+  </tr>
+</table>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+  <button type="button" class="btn btn-default navbar-btn navbar-left navbar-text"><%= link_to "Back to products", products_path %></button>
+    <ol class="breadcrumb navbar-right navbar-text">
+      <li><%= link_to "Products", products_path %>  </li>
+      <li class="active"><%= @product.name %></li>
+    </ol>
+  </div>
+</nav>
+<script type="text/javascript">$('#no-login').tooltip()</script>
+
+

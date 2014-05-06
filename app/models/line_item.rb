@@ -1,8 +1,8 @@
 class LineItem < ActiveRecord::Base
-  belongs_to :order
+  belongs_to :order, inverse_of: :line_items
   belongs_to :product
 
-  validates :order_id, presence: true
+  validates :order, presence: true
   validates :product_id, presence: true
   validates :quantity, presence: true, numericality: { greater_than: 0, allow_blank: true }
   before_validation :set_price
@@ -12,7 +12,7 @@ class LineItem < ActiveRecord::Base
   end
 
   def total_price
-    self.price * self.quantity
+    price * self.quantity
   end
 
   def increment_order_total_amount

@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 ruby "2.1.1"
-
+gem 'rails-assets-bootstrap'
 gem 'pry'
 
 gem 'brakeman', require: false

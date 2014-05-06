@@ -12,7 +12,7 @@ end
 
 class CreditCard < ActiveRecord::Base
   belongs_to :customer
-  has_many :orders
+  has_many :orders, inverse_of: :credit_card
 
   validates_with FutureExpiry
   validates :customer_id, presence:true
